@@ -39,16 +39,26 @@ module.exports = {
       filename: 'index.html',
     }),*/
     new HtmlWebpackPlugin({
-      inject: true,
+      //inject: 'head',
       hash: true,
-      lang: 'en-US',
-      title: json["page_meta"].title,
       'meta':
         {
           'viewport': 'width=device-width, initial-scale=1',
           'keywords': json["page_meta"].meta_keywords,
           'description': json["page_meta"].meta_description,
         },
+      templateParameters: {
+        title: json["page_meta"].title,
+        navText1: json["nav"][0].text,
+        navText2: json["nav"][1].text,
+        navText3: json["nav"][2].text,
+        navText4: json["nav"][3].text,
+        pageHeader: json.page_meta.h1,
+        breadcrumbText1: json["breadcrumbs"][0].text,
+        breadcrumbText2: json["breadcrumbs"][1].text,
+        breadcrumbText3: json["breadcrumbs"][2].text,
+      },
+
       cardTitle: json["stock"][0].title,
       //minify: true,
       template: './src/index.html',
