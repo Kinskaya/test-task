@@ -1,10 +1,8 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const json = require('./src/dataset.json');
 const path = require('path');
-
+const json = require('./src/dataset.json');
 
 module.exports = {
   entry: {
@@ -34,13 +32,10 @@ module.exports = {
     ],
   },
   plugins: [
-    /*new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/index.html'),
-      filename: 'index.html',
-    }),*/
     new HtmlWebpackPlugin({
-      //inject: 'head',
       hash: true,
+      minify: true,
+      favicon: 'src/assets/logo-truck.png',
       'meta':
         {
           'viewport': 'width=device-width, initial-scale=1',
@@ -49,6 +44,11 @@ module.exports = {
         },
       templateParameters: {
         title: json["page_meta"].title,
+        description: {
+          content1: json["page_text"][0].content,
+          content2: json["page_text"][1].content,
+          content3: json["page_text"][2].content,
+        },
         navText1: json["nav"][0].text,
         navText2: json["nav"][1].text,
         navText3: json["nav"][2].text,
@@ -57,12 +57,104 @@ module.exports = {
         breadcrumbText1: json["breadcrumbs"][0].text,
         breadcrumbText2: json["breadcrumbs"][1].text,
         breadcrumbText3: json["breadcrumbs"][2].text,
+        card1: {
+          title: json["stock"][0].title,
+          price: json["stock"][0].price,
+          currency: json["stock"][0]['price_currency'],
+          make: json["stock"][0].make,
+          model: json["stock"][0].model,
+          type: json["stock"][0].type,
+          year: json["stock"][0].year,
+          mileage: json["stock"][0].mileage,
+          mileage_measure: json["stock"][0]['mileage_measure'],
+          axle_configuration: json["stock"][0]['axle_configuration'],
+          power: json["stock"][0].power,
+          power_measure: json["stock"][0]['power_measure'],
+          payload: json["stock"][0].payload,
+          gross_weight: json["stock"][0]['gross_weight'],
+        },
+        card2: {
+          title: json["stock"][1].title,
+          price: json["stock"][1].price,
+          currency: json["stock"][1]['price_currency'],
+          make: json["stock"][1].make,
+          model: json["stock"][1].model,
+          type: json["stock"][1].type,
+          year: json["stock"][1].year,
+          mileage: json["stock"][1].mileage,
+          mileage_measure: json["stock"][1]['mileage_measure'],
+          axle_configuration: json["stock"][1]['axle_configuration'],
+          power: json["stock"][1].power,
+          power_measure: json["stock"][1]['power_measure'],
+          payload: json["stock"][1].payload,
+          gross_weight: json["stock"][1]['gross_weight'],
+        },
+        card3: {
+          title: json["stock"][2].title,
+          price: json["stock"][2].price,
+          currency: json["stock"][2]['price_currency'],
+          make: json["stock"][2].make,
+          model: json["stock"][2].model,
+          type: json["stock"][2].type,
+          year: json["stock"][2].year,
+          mileage: json["stock"][2].mileage,
+          mileage_measure: json["stock"][2]['mileage_measure'],
+          axle_configuration: json["stock"][2]['axle_configuration'],
+          power: json["stock"][2].power,
+          power_measure: json["stock"][2]['power_measure'],
+          payload: json["stock"][2].payload,
+          gross_weight: json["stock"][2]['gross_weight'],
+        },
+        card4: {
+          title: json["stock"][3].title,
+          price: json["stock"][3].price,
+          currency: json["stock"][3]['price_currency'],
+          make: json["stock"][3].make,
+          model: json["stock"][3].model,
+          type: json["stock"][3].type,
+          year: json["stock"][3].year,
+          mileage: json["stock"][3].mileage,
+          mileage_measure: json["stock"][3]['mileage_measure'],
+          axle_configuration: json["stock"][3]['axle_configuration'],
+          power: json["stock"][3].power,
+          power_measure: json["stock"][3]['power_measure'],
+          payload: json["stock"][3].payload,
+          gross_weight: json["stock"][3]['gross_weight'],
+        },
+        card5: {
+          title: json["stock"][4].title,
+          price: json["stock"][4].price,
+          currency: json["stock"][4]['price_currency'],
+          make: json["stock"][4].make,
+          model: json["stock"][4].model,
+          type: json["stock"][4].type,
+          year: json["stock"][4].year,
+          mileage: json["stock"][4].mileage,
+          mileage_measure: json["stock"][4]['mileage_measure'],
+          axle_configuration: json["stock"][4]['axle_configuration'],
+          power: json["stock"][4].power,
+          power_measure: json["stock"][4]['power_measure'],
+          payload: json["stock"][4].payload,
+          gross_weight: json["stock"][4]['gross_weight'],
+        },
+        card6: {
+          title: json["stock"][5].title,
+          price: json["stock"][5].price,
+          currency: json["stock"][5]['price_currency'],
+          make: json["stock"][5].make,
+          model: json["stock"][5].model,
+          type: json["stock"][5].type,
+          year: json["stock"][5].year,
+          mileage: json["stock"][5].mileage,
+          mileage_measure: json["stock"][5]['mileage_measure'],
+          axle_configuration: json["stock"][5]['axle_configuration'],
+          power: json["stock"][5].power,
+          power_measure: json["stock"][5]['power_measure'],
+          payload: json["stock"][5].payload,
+          gross_weight: json["stock"][5]['gross_weight'],
+        },
       },
-
-      cardTitle: json["stock"][0].title,
-      //minify: true,
       template: './src/index.html',
-      //templateParameters:require('./src/dataset.json')
     }),
     new CopyPlugin({
       patterns: [

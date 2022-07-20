@@ -1,8 +1,115 @@
 $font-size: 1rem;
 $font-color: rgb(55 105 40);
+$link-color: #eeff41;
 
 html {
   font-size: $font-size;
   color: $font-color;
   text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.row .col.s6 {
+  margin-left: auto;
+  width: 33.3%;
+}
+
+.row {
+  margin-top: 15px;
+}
+
+.card-image {
+  padding: 10px;
+}
+
+.card-content__price {
+  width: max-content;
+  border-radius: 5px;
+  padding: 3px;
+  align-self: flex-end;
+}
+
+.card .card-image img {
+  border-radius: 5px;
+}
+
+.brand-logo img {
+  width: 90px;
+  height: 50px;
+  margin-top: 8px;
+}
+
+.card .card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.card-content__title {
+  color: $font-color;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  height: 48px;
+}
+
+.nav-breadcrumb {
+  height: 40px;
+  line-height: 40px;
+}
+
+.breadcrumb:last-child {
+  color: $link-color;
+}
+
+.card-content__params {
+  height: 96px;
+}
+
+.filter-container {
+  padding: 20px;
+}
+
+.input-field {
+  width: 150px;
+}
+
+.filter-title {
+  color: $font-color;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 0;
+}
+
+.filter-params {
+  display: flex;
+  justify-content: space-between;
+}
+
+.year-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.price-field {
+  width: 180px;
+  display: flex;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  width: 110px;
+  margin-left: auto;
+  a {
+    margin-bottom: 5px;
+  }
+}
+
+.row .col.l6 {
+  text-align: start;
 }

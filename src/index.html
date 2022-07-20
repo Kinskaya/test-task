@@ -6,27 +6,24 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title><%= title %></title>
   </head>
-
   <body>
     <header>
       <nav>
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">Logo</a>
+        <div class="nav-wrapper #b2dfdb teal lighten-4">
+          <a href="#!" class="brand-logo"><img src="assets/logo-truck.png" alt="logo"></a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="medium material-icons">dehaze</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="#"><%= navText1 %></a></li>
-            <li><a href="#"><%= navText1 %></a></li>
-            <li><a href="#"><%= navText1 %></a></li>
-            <li><a href="#"><%= navText1 %></a></li>
+            <li><a href="#"><%= navText2 %></a></li>
+            <li><a href="#"><%= navText3 %></a></li>
+            <li><a href="#"><%= navText4 %></a></li>
           </ul>
         </div>
       </nav>
-
     </header>
     <main>
-
-      <nav>
-        <div class="nav-wrapper">
+      <nav class="nav-breadcrumb">
+        <div class="nav-wrapper #e0e0e0 grey lighten-2">
           <div class="col s12">
             <a href="#" class="breadcrumb"><%= breadcrumbText1 %></a>
             <a href="#" class="breadcrumb"><%= breadcrumbText2 %></a>
@@ -34,109 +31,245 @@
           </div>
         </div>
       </nav>
-      <h1><%= pageHeader %></h1>
-      <div class="row">
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/img/1.jpg" alt="car-1">
-              <span class="card-title"><%= htmlWebpackPlugin.options.cardTitle %></span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+      <div class="container">
+        <h1><%= pageHeader %></h1>
+        <div class="z-depth-1">
+          <div class="filter-container">
+            <p class="filter-title">Filters</p>
+            <div class="filter-params">
+              <div class="input-field col s12">
+                <select multiple>
+                  <option value="" disabled>Make</option>
+                  <option value="1" selected>DAF</option>
+                  <option value="2">Volvo</option>
+                  <option value="3">MAN</option>
+                </select>
+                <label>Make</label>
+              </div>
+              <div class="input-field col s12">
+                <select>
+                  <option value="" disabled selected>Model</option>
+                  <option value="1"><%= card1.model %></option>
+                  <option value="2"><%= card2.model %></option>
+                  <option value="3"><%= card3.model %></option>
+                  <option value="4"><%= card4.model %></option>
+                  <option value="5"><%= card5.model %></option>
+                  <option value="6"><%= card6.model %></option>
+                </select>
+                <label>Model</label>
+              </div>
+              <div class="input-field col s12">
+                <select>
+                  <option value="" disabled selected>Type</option>
+                  <option value="1"><%= card1.type %></option>
+                  <option value="2"><%= card2.type %></option>
+                  <option value="3"><%= card3.type %></option>
+                  <option value="4"><%= card4.type %></option>
+                  <option value="5"><%= card5.type %></option>
+                  <option value="6"><%= card6.type %></option>
+                </select>
+                <label>Type</label>
+              </div>
+              <div class="input-field col s12 year-field">
+                <select>
+                  <option value="" disabled selected>From</option>
+                  <option value="1">2006</option>
+                  <option value="2">2009</option>
+                  <option value="3">2012</option>
+                  <option value="4">2014</option>
+                  <option value="5">2016</option>
+                </select>
+                <select>
+                  <option value="" disabled selected>To</option>
+                  <option value="1">2006</option>
+                  <option value="2">2009</option>
+                  <option value="3">2012</option>
+                  <option value="4">2014</option>
+                  <option value="5">2016</option>
+                </select>
+                <label>Year</label>
+              </div>
+              <div class="price-field" id="price-field">
+                <div class="input-field col s6">
+                  <input placeholder="Min" id="price-from" min="0" type="number">
+                  <label for="price-field">Price Min</label>
+                </div>
+                <div class="input-field col s6">
+                  <input placeholder="Max" id="price-to" min="0" type="number">
+                  <label for="price-field">Max</label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/img/2.jpg" alt="car-2">
-              <span class="card-title"><%= htmlWebpackPlugin.options.cardTitle %></span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <div class="row z-depth-1">
+          <div class="col s6 m2">
+            <div class="card">
+              <div class="card-image materialboxed">
+                <img src="assets/img/1.jpg" alt="car-1">
+              </div>
+              <div class="card-content">
+                <div class="card-content__title">
+                  <%= card1.title %>
+                </div>
+                <div class="card-content__params">
+                  <p><%= card1.year %>, <%= card1.axle_configuration %></p>
+                  <p><%= card1.type %></p>
+                  <div>
+                    <%= card1.mileage %> <%= card1.mileage_measure %>
+                  </div>
+                </div>
+                <div class="card-content__price #eeff41 lime accent-2">
+                  <%= card1.price %> <%= card1.currency %>
+                </div>
+              </div>
             </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="col s6 m2">
+            <div class="card">
+              <div class="card-image materialboxed">
+                <img src="assets/img/2.jpg" alt="car-2">
+              </div>
+              <div class="card-content">
+                <div class="card-content__title">
+                  <%= card2.title %>
+                </div>
+                <div class="card-content__params">
+                  <p><%= card2.year %>, <%= card1.axle_configuration %></p>
+                  <p><%= card2.type %></p>
+                  <div>
+                    <%= card2.mileage %> <%= card2.mileage_measure %>
+                  </div>
+                </div>
+                <div class="card-content__price #eeff41 lime accent-2">
+                  <%= card2.price %> <%= card2.currency %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s6 m2">
+            <div class="card">
+              <div class="card-image materialboxed">
+                <img src="assets/img/3.jpg" alt="car-3">
+              </div>
+              <div class="card-content">
+                <div class="card-content__title">
+                  <%= card3.title %>
+                </div>
+                <div class="card-content__params">
+                  <p><%= card3.year %>, <%= card3.axle_configuration %></p>
+                  <p><%= card3.type %></p>
+                  <div>
+                    <%= card3.mileage %> <%= card3.mileage_measure %>
+                  </div>
+                </div>
+                <div class="card-content__price #eeff41 lime accent-2">
+                  <%= card3.price %> <%= card3.currency %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s6 m2">
+            <div class="card">
+              <div class="card-image materialboxed">
+                <img src="assets/img/4.jpg" alt="car-4">
+              </div>
+              <div class="card-content">
+                <div class="card-content__title">
+                  <%= card4.title %>
+                </div>
+                <div class="card-content__params">
+                  <p><%= card4.year %>, <%= card4.axle_configuration %></p>
+                  <p><%= card4.type %></p>
+                  <div>
+                    <%= card4.mileage %> <%= card4.mileage_measure %>
+                  </div>
+                </div>
+                <div class="card-content__price #eeff41 lime accent-2">
+                  <%= card4.price %> <%= card4.currency %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s6 m2">
+            <div class="card">
+              <div class="card-image materialboxed">
+                <img src="assets/img/5.jpg" alt="car-5">
+              </div>
+              <div class="card-content">
+                <div class="card-content__title">
+                  <%= card5.title %>
+                </div>
+                <div class="card-content__params">
+                  <p><%= card5.year %>, <%= card5.axle_configuration %></p>
+                  <p><%= card5.type %></p>
+                  <div>
+                    <%= card5.mileage %> <%= card5.mileage_measure %>
+                  </div>
+                </div>
+                <div class="card-content__price #eeff41 lime accent-2">
+                  <%= card5.price %> <%= card5.currency %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s6 m2">
+            <div class="card">
+              <div class="card-image materialboxed">
+                <img src="assets/img/6.jpg" alt="car-6">
+              </div>
+              <div class="card-content">
+                <div class="card-content__title">
+                  <%= card6.title %>
+                </div>
+                <div class="card-content__params">
+                  <p><%= card6.year %>, <%= card6.axle_configuration %></p>
+                  <p><%= card6.type %></p>
+                  <div>
+                    <%= card6.mileage %> <%= card6.mileage_measure %>
+                  </div>
+                </div>
+                <div class="card-content__price #eeff41 lime accent-2">
+                  <%= card6.price %> <%= card6.currency %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/img/3.jpg" alt="car-3">
-              <span class="card-title"><%= htmlWebpackPlugin.options.cardTitle %></span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/img/4.jpg" alt="car-4">
-              <span class="card-title"><%= htmlWebpackPlugin.options.cardTitle %></span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/img/5.jpg" alt="car-5">
-              <span class="card-title"><%= htmlWebpackPlugin.options.cardTitle %></span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/img/6.jpg" alt="car-6">
-              <span class="card-title"><%= htmlWebpackPlugin.options.cardTitle %></span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
+        <ul class="pagination">
+          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li class="active teal lighten-4"><a href="#!">1</a></li>
+          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+        <div>
+          <p><%= description.content1 %></p>
+          <p><%= description.content2 %></p>
+          <p><%= description.content3 %></p>
         </div>
       </div>
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer #b2dfdb teal lighten-4">
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            <h5 class="white-text">Company Name</h5>
+            <p class="grey-text text-lighten-4">Address:</p>
+            <p class="grey-text text-lighten-4">Contacts:</p>
           </div>
           <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            <ul class="social">
+              <a class="waves-effect waves-light btn-small">Instagram</a>
+              <a class="waves-effect waves-light btn-small">Twitter</a>
+              <a class="waves-effect waves-light btn-small">Facebook</a>
             </ul>
           </div>
         </div>
       </div>
       <div class="footer-copyright">
-        <div class="container">
-          © 2022
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
+        <p class="container">© 2022</p>
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="application/json" src="dataset.json"></script>
-    <!--<script src="index.js"></script>-->
   </body>
 </html>
